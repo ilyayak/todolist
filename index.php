@@ -14,10 +14,22 @@
 </head>
 <body>
 <div class="container">
-    <h1>Список дел</h1>
+    <h1 class="title">Список дел</h1>
     <form action="add.php" method="post">
         <input type="text" name="task" id="task" placeholder="Нужно сделать...">
+        <button type="sumbit" name="sendTask" class="btn btn-succes">Отправить</button>
     </form>
+
+    <?
+    require_once 'configDB.php';
+
+    echo '<ul>';
+    $query = $pdo->query('SELECT * FROM `tasks` ORDER BY `id` DESC');
+    while($row = $query->fetch(PDO::FETCH_OBJ)){
+        echo '<li class="list"><b>'.$row->task.'</b><a href="/delete.php?id='.$row->id.'"><button class="btn btn-simple">Удалить</button></a></li>';
+    }
+    echo '</ul>';
+    ?>
 </div>
 
 </body>
