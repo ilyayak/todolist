@@ -17,7 +17,7 @@
     <h1 class="title">Список дел</h1>
     <form action="add.php" method="post">
         <input type="text" name="task" id="task" placeholder="Нужно сделать...">
-        <button type="sumbit" name="sendTask" class="btn btn-succes">Отправить</button>
+        <a href="list.php"><button type="sumbit" name="sendTask" class="btn btn-succes">Отправить</button></a>
     </form>
 
     <?

@@ -1,6 +1,7 @@
 <?php
+
 $task = $_POST['task'];
-if ($task ==''){
+if ($task == '') {
     echo 'Введите задание';
     exit();
 }
@@ -8,6 +9,6 @@ if ($task ==''){
 require_once "configDB.php";
 $sql = 'INSERT INTO tasks(task) VALUES(:task)';
 $query = $pdo->prepare($sql);
-$query->execute(['task' =>$task]);
+$query->execute(['task' => $task]);
 
 header('Location:/');
